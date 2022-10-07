@@ -47,13 +47,6 @@ public class Main {
         }
     }
 
-//    try {
-//        produtoController.venderProduto(produto, qtdProdutoVenda);
-//        JOptionPane.showMessageDialog(null, "Produto vendido com sucesso!");
-//    } catch (Exception exception) {
-//        throw new RuntimeException(exception.getMessage());
-//    }
-
     public static void cadastrarPlanos() {
         System.out.println("\nInforme os dados:" +
                 "\nOperadora: " +
@@ -89,8 +82,8 @@ public class Main {
 
         try {
             planosController.cadastrarPlanos(id, qtdDados, qtdBonus, nome, operadora, beneficios, valor);
-        } catch (Exception e) {
-            throw new RuntimeException("deu ruim");
+        } catch (RuntimeException e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 
@@ -129,8 +122,8 @@ public class Main {
 
         try {
             planosController.atualizarPlanos(id, qtdDados, qtdBonus, nome, operadora, beneficios, valor);
-        } catch (Exception e) {
-            throw new RuntimeException("deu ruim");
+        } catch (RuntimeException e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 
@@ -140,8 +133,8 @@ public class Main {
 
         try {
             planosController.removerPlanos(id);
-        } catch (Exception e) {
-            throw new RuntimeException("deu ruim");
+        } catch (RuntimeException e) {
+            System.out.println("Erro: " + e.getMessage());
         }
     }
 
@@ -166,15 +159,36 @@ public class Main {
     }
 
     public static void listarPlanosOperadora() {
+        System.out.println("Informe operadora dejesa listar: " +
+                "\n1 - vivo" +
+                "\n2 - tim" +
+                "\n3 - oi" +
+                "\n4 - claro");
+        String operadora = sc.next();
+
+        try {
+            planosController.listarPlanosOperadora(operadora);
+        } catch (RuntimeException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
     }
 
     public static void listarTodosPlanos() {
+        try {
+            planosController.listarTodosPlanos();
+        } catch (RuntimeException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
     }
 
     public static void listarPlanoID() {
         System.out.println("\nQual ID deseja listar: ");
         Integer id = sc.nextInt();
 
-        planosController.listarPlanoID(id);
+        try {
+            planosController.listarPlanoID(id);
+        } catch (RuntimeException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
     }
 }

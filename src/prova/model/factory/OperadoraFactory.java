@@ -2,6 +2,10 @@ package prova.model.factory;
 
 import prova.model.entities.Operadora;
 
+/**
+ * Usado para transformar o número em uma Operadora.
+ */
+
 public class OperadoraFactory {
     public Operadora getOperadora(int opcao) {
         switch (opcao) {

@@ -21,4 +21,12 @@ public class PlanosController {
     public void listarPlanoID(Integer id) {
         planosService.listarPlanoID(id);
     }
+
+    public void listarTodosPlanos() {
+        planosService.listarTodosPlanos();
+    }
+
+    public void listarPlanosOperadora(String operadora) {
+        planosService.listarPlanosOperadora(operadora);
+    }
 }
