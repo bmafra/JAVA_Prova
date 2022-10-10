@@ -2,7 +2,6 @@ package prova.view;
 
 import prova.controller.PlanosController;
 import prova.model.entities.Operadora;
-import prova.model.entities.Planos;
 import prova.model.factory.OperadoraFactory;
 
 import java.util.Scanner;
@@ -10,6 +9,8 @@ import java.util.Scanner;
 /**
  * Esse sistema é uma aplicação para operadoras de telecomunicação, onde podem
  * registar seus planos, atualizar, remover e listar.
+ * <p>
+ * Essa classe faz o contato com o banco de dados.
  *
  * @author bruna_a_mafra
  */
@@ -44,7 +45,11 @@ public class Main {
             case 4 -> {
                 listarPlanos();
             }
+            default -> {
+                System.out.print("\nNúmero inválido. Tente novamente!\n");
+            }
         }
+        menu();
     }
 
     public static void cadastrarPlanos() {
@@ -56,8 +61,9 @@ public class Main {
                 "\n4 - claro");
         int opcao = sc.nextInt();
 
-        if (!(opcao > 1) && !(opcao < 4)) {
-            System.out.print("\nNúmero inválido!");
+        if (opcao <= 0 || opcao >= 5) {
+            System.out.print("\nNúmero inválido. Tente novamente!\n");
+            cadastrarPlanos();
         }
 
         Operadora operadora = new OperadoraFactory().getOperadora(opcao);
@@ -144,7 +150,7 @@ public class Main {
                 "\n2 - Todos planos de todas operadoras" +
                 "\n3 - Por identificador");
         int opcao = sc.nextInt();
-        
+
         switch (opcao) {
             case 1 -> {
                 listarPlanosOperadora();
@@ -167,7 +173,7 @@ public class Main {
         String operadora = sc.next();
 
         try {
-            planosController.listarPlanosOperadora(operadora);
+            System.out.println(planosController.listarPlanosOperadora(operadora));
         } catch (RuntimeException e) {
             System.out.println("Erro: " + e.getMessage());
         }
@@ -175,7 +181,7 @@ public class Main {
 
     public static void listarTodosPlanos() {
         try {
-            planosController.listarTodosPlanos();
+            System.out.println(planosController.listarTodosPlanos());
         } catch (RuntimeException e) {
             System.out.println("Erro: " + e.getMessage());
         }
@@ -186,7 +192,7 @@ public class Main {
         Integer id = sc.nextInt();
 
         try {
-            planosController.listarPlanoID(id);
+            System.out.println(planosController.listarPlanoID(id));
         } catch (RuntimeException e) {
             System.out.println("Erro: " + e.getMessage());
         }

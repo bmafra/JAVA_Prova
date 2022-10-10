@@ -2,6 +2,9 @@ package prova.model.service;
 
 import prova.model.dao.PlanosDAO;
 import prova.model.entities.Operadora;
+import prova.model.entities.Planos;
+
+import java.util.Collection;
 
 /**
  * Faz a ponte entre a controller e a DAO.
@@ -9,7 +12,7 @@ import prova.model.entities.Operadora;
 
 public class PlanosService {
 
-    public void cadastrarPlanos(Integer id, Integer qtdDados, Integer qtdBonus, String nome, Operadora operadora, String beneficios, Double valor){
+    public void cadastrarPlanos(Integer id, Integer qtdDados, Integer qtdBonus, String nome, Operadora operadora, String beneficios, Double valor) {
         try {
             new PlanosDAO().cadastrarPlanos(id, qtdDados, qtdBonus, nome, operadora, beneficios, valor);
         } catch (Exception e) {
@@ -33,25 +36,25 @@ public class PlanosService {
         }
     }
 
-    public void listarPlanoID(Integer id) {
+    public Planos listarPlanoID(Integer id) {
         try {
-            new PlanosDAO().listarPlanoID(id);
+            return new PlanosDAO().listarPlanoID(id);
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
     }
 
-    public void listarTodosPlanos() {
+    public Collection<Planos> listarTodosPlanos() {
         try {
-            new PlanosDAO().listarTodosPlanos();
+            return new PlanosDAO().listarTodosPlanos();
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }
     }
 
-    public void listarPlanosOperadora(String operadora) {
+    public Collection<Planos> listarPlanosOperadora(String operadora) {
         try {
-            new PlanosDAO().listarPlanosOperadora(operadora);
+            return new PlanosDAO().listarPlanosOperadora(operadora);
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }

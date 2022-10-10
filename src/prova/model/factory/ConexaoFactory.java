@@ -14,10 +14,11 @@ public class ConexaoFactory {
     private String username = "root";
     private String password = "root";
 
-    public Connection connectDB() {
+    public Connection connectDB() throws ErroConexaoException {
         try {
             return DriverManager.getConnection(url, username, password);
-        } catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
             throw new ErroConexaoException();
         }
     }

@@ -1,7 +1,11 @@
 package prova.exceptions;
 
-public class ErroExecucaoException extends RuntimeException {
+/**
+ * Quando ocorre um erro na execução é lançado essa exceção.
+ */
+
+public class ErroExecucaoException extends Exception {
     public ErroExecucaoException() {
-        super("Erro na conexão.");
+        super("Erro na execução.");
     }
 }

@@ -1,6 +1,8 @@
 package prova.model.entities;
 
-import java.util.Scanner;
+/**
+ * Classe que modela um plano.
+ */
 
 public class Planos {
     private Integer identificador, qtdDados, qtdBonus;
@@ -15,6 +17,14 @@ public class Planos {
         this.operadora = operadora;
         this.nome = nome;
         this.beneficios = beneficios;
+        this.valor = valor;
+    }
+
+    public Planos(int identificador, int qtdDados, Operadora operadora, String nome, double valor) {
+        this.identificador = identificador;
+        this.qtdDados = qtdDados;
+        this.operadora = operadora;
+        this.nome = nome;
         this.valor = valor;
     }
 
@@ -72,5 +82,18 @@ public class Planos {
 
     public void setValor(Double valor) {
         this.valor = valor;
+    }
+
+    @Override
+    public String toString() {
+        return "Planos{" +
+                "identificador=" + identificador +
+                ", qtdDados=" + qtdDados +
+                ", qtdBonus=" + qtdBonus +
+                ", operadora=" + operadora +
+                ", nome='" + nome + '\'' +
+                ", beneficios='" + beneficios + '\'' +
+                ", valor=" + valor +
+                '}';
     }
 }
