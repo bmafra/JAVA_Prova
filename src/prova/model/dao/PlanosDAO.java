@@ -27,7 +27,6 @@ public class PlanosDAO {
     }
 
     public void cadastrarPlanos(Integer id, Integer qtdDados, Integer qtdBonus, String nome, Operadora operadora, String beneficios, Double valor) throws SQLException, ErroExecucaoException {
-        System.out.println("cadastra");
         String sql = "insert into plano (identificador, operadora, nome, qtdDados, qtdBonus, beneficios, valor) values (?,?,?,?,?,?,?);";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -112,7 +111,7 @@ public class PlanosDAO {
 
     public Collection<Planos> listarTodosPlanos() throws ErroExecucaoException, SQLException {
         Collection<Planos> listaPlanos = new ArrayList<>();
-        String sql = "select identificador, operadora, nome, qtdDados, valor from plano order by plano.operadora;";
+        String sql = "select identificador, operadora, nome, qtdDados, valor from  order by plano.operadora;";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
