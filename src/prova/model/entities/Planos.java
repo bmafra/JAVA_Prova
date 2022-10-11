@@ -20,7 +20,7 @@ public class Planos {
         this.valor = valor;
     }
 
-    public Planos(int identificador, int qtdDados, Operadora operadora, String nome, double valor) {
+    public Planos(Integer identificador, Integer qtdDados, Operadora operadora, String nome, Double valor) {
         this.identificador = identificador;
         this.qtdDados = qtdDados;
         this.operadora = operadora;
@@ -86,14 +86,13 @@ public class Planos {
 
     @Override
     public String toString() {
-        return "Planos{" +
-                "identificador=" + identificador +
-                ", qtdDados=" + qtdDados +
-                ", qtdBonus=" + qtdBonus +
-                ", operadora=" + operadora +
-                ", nome='" + nome + '\'' +
-                ", beneficios='" + beneficios + '\'' +
-                ", valor=" + valor +
-                '}';
+        return "\nPlanos" +
+                "\nIdentificador=" + identificador +
+                "\nQuantidade de dados: " + qtdDados +
+                "\nQuantidade bonus: " + qtdBonus +
+                "\nOperadora: " + operadora +
+                "\nNome: " + nome +
+                "\nBeneficios: " + beneficios +
+                "\nValor: " + valor + "\n";
     }
 }
